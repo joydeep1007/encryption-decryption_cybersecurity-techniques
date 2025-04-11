@@ -22,17 +22,15 @@ public class janu {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the encrypted message: ");
-        String encrypted = scanner.nextLine();
-        
-        System.out.print("Enter the shift value (1-25): ");
-        int shift = scanner.nextInt();
-        
-        String decrypted = decrypt(encrypted, shift);
-        System.out.println("Decrypted message: " + decrypted);
-        
-        scanner.close();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter the encrypted message: ");
+            String encrypted = scanner.nextLine();
+            
+            System.out.print("Enter the shift value (1-25): ");
+            int shift = scanner.nextInt();
+            
+            String decrypted = decrypt(encrypted, shift);
+            System.out.println("Decrypted message: " + decrypted);
+        }
     }
 }

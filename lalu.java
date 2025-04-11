@@ -38,9 +38,8 @@ public class lalu
       
     public static void main(String[] args)   
     {   
-        Scanner sc = new Scanner(System.in);   
-        
-        while(true) {
+        try (Scanner sc = new Scanner(System.in)) {   
+            while(true) {
             System.out.println("\nCaesar Cipher Menu:");
             System.out.println("1. Encrypt a message");
             System.out.println("2. Decrypt a message");
@@ -64,7 +63,7 @@ public class lalu
             String inputStr = sc.nextLine();   
             
             System.out.println("Enter the shift key: ");   
-            int shiftKey = Integer.valueOf(sc.nextLine());   
+            int shiftKey = Integer.parseInt(sc.nextLine());   
             
             if(choice == 1) {
                 String encrypted = encryptData(inputStr, shiftKey);
@@ -72,9 +71,8 @@ public class lalu
             } else {
                 String decrypted = decryptData(inputStr, shiftKey);
                 System.out.println("Decrypted Message: " + decrypted);
+                }
             }
         }
-        
-        sc.close();   
     }   
-}
+}   
