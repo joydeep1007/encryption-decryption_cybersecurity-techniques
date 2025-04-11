@@ -21,19 +21,17 @@ public class CaesarCipher {
     }
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the message to encrypt: ");
-        String message = scanner.nextLine();
-        
-        System.out.print("Enter the shift value (1-25): ");
-        int shift = scanner.nextInt();
-        
-        String encrypted = encrypt(message, shift);
-        System.out.println("Original: " + message);
-        System.out.println("Encrypted: " + encrypted);
-        System.out.println("Decrypted: " + decrypt(encrypted, shift));
-        
-        scanner.close();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter the message to encrypt: ");
+            String message = scanner.nextLine();
+            
+            System.out.print("Enter the shift value (1-25): ");
+            int shift = scanner.nextInt();
+            
+            String encrypted = encrypt(message, shift);
+            System.out.println("Original: " + message);
+            System.out.println("Encrypted: " + encrypted);
+            System.out.println("Decrypted: " + decrypt(encrypted, shift));
+        }
     }
 }

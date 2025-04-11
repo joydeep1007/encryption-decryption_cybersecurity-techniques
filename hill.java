@@ -115,9 +115,7 @@ public class hill {
     }
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Hill Cipher Implementation");
             System.out.print("Enter matrix dimension (2 for 2x2, 3 for 3x3): ");
             dimension = scanner.nextInt();
@@ -164,7 +162,7 @@ public class hill {
         } catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
         } finally {
-            scanner.close();
+            
         }
     }
 }
