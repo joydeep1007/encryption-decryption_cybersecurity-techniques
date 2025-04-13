@@ -5,8 +5,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
 public class des {
-    private SecretKey secretKey;
-    private Cipher desCipher;
+    private final SecretKey secretKey;
+    private final Cipher desCipher;
     
     public des() throws Exception {
         // Initialize DES cipher
@@ -37,9 +37,7 @@ public class des {
     }
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             des desEncryption = new des();
             
             while(true) {
@@ -76,8 +74,6 @@ public class des {
             
         } catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
-        } finally {
-            scanner.close();
-        }
+        } 
     }
 }

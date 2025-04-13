@@ -85,9 +85,8 @@ public class Railfence {
     }
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        while(true) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            while(true) {
             System.out.println("\nRail Fence Cipher Menu:");
             System.out.println("1. Encrypt a message");
             System.out.println("2. Decrypt a message");
@@ -121,8 +120,6 @@ public class Railfence {
                 System.out.println("Decrypted text: " + decrypted);
             }
         }
-        
-        scanner.close();
-        
+            }
+        }
     }
-}

@@ -65,7 +65,7 @@ static String originalText(String cipher_text, String key)
 // This function will convert the lower case character to Upper case
 static String LowerToUpper(String s)
 {
-    StringBuffer str =new StringBuffer(s); 
+    StringBuilder str =new StringBuilder(s); 
     for(int i = 0; i < s.length(); i++)
     {
         if(Character.isLowerCase(s.charAt(i)))
@@ -80,9 +80,8 @@ static String LowerToUpper(String s)
 // Driver code
 public static void main(String[] args) 
 {
-    Scanner scanner = new Scanner(System.in);
-    
-    while(true) {
+    try (Scanner scanner = new Scanner(System.in)) {
+        while(true) {
         System.out.println("\nVigenere Cipher Menu:");
         System.out.println("1. Encrypt a message");
         System.out.println("2. Decrypt a message");
@@ -121,8 +120,7 @@ public static void main(String[] args)
             System.out.println("Decrypted text: " + original_text);
         }
     }
-    
-    scanner.close();
-}
+        }
+    }
 }
 
