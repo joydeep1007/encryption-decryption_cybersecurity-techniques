@@ -101,8 +101,7 @@ public class ponu
         }  
         
         String out = "";  
-        String[] encDigraphs = new String[length];  
-        encDigraphs = encodeDigraph(digraph);  
+        String[] encDigraphs = encodeDigraph(digraph);  
         for(int k = 0; k < length; k++)  
             out = out + encDigraphs[k];  
         return out;  

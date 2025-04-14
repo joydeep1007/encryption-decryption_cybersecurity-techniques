@@ -11,9 +11,7 @@ public class diffiehellman {
     }
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             // Get prime number and base
             System.out.print("Enter the prime number (p): ");
             BigInteger prime = new BigInteger(scanner.nextLine());
@@ -55,8 +53,6 @@ public class diffiehellman {
             
         } catch(NumberFormatException e) {
             System.out.println("Please enter valid numbers!");
-        } finally {
-            scanner.close();
         }
     }
 }

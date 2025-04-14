@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class rsa {
     private BigInteger p, q, n, phi, e, d;
-    private int bitLength = 1024;
-    private Random random = new Random();
+    private final int bitLength = 1024;
+    private final Random random = new Random();
 
     public void generateKeys() {
         // Generate two large prime numbers
@@ -52,15 +52,14 @@ public class rsa {
                 int choice = scanner.nextInt();
                 
                 switch(choice) {
-                    case 1:
+                    case 1 -> {
                         System.out.println("\nPublic Key (e,n):");
                         System.out.println("e = " + rsa.e);
                         System.out.println("n = " + rsa.n);
                         System.out.println("\nPrivate Key (d,n):");
                         System.out.println("d = " + rsa.d);
-                        break;
-                        
-                    case 2:
+                    }
+                    case 2 -> {
                         System.out.print("\nEnter a number to encrypt (smaller than n): ");
                         BigInteger message = scanner.nextBigInteger();
                         if (message.compareTo(rsa.n) >= 0) {
@@ -69,21 +68,18 @@ public class rsa {
                         }
                         BigInteger encrypted = rsa.encrypt(message);
                         System.out.println("Encrypted message: " + encrypted);
-                        break;
-                        
-                    case 3:
+                    }
+                    case 3 -> {
                         System.out.print("\nEnter a number to decrypt: ");
                         BigInteger toDecrypt = scanner.nextBigInteger();
                         BigInteger decrypted = rsa.decrypt(toDecrypt);
                         System.out.println("Decrypted message: " + decrypted);
-                        break;
-                        
-                    case 4:
+                    }
+                    case 4 -> {
                         System.out.println("Goodbye!");
-                        return;
-                        
-                    default:
-                        System.out.println("Invalid choice! Please try again.");
+                        System.exit(0);
+                    }
+                    default -> System.out.println("Invalid choice! Please try again.");
                 }
             }
         } catch (Exception e) {
